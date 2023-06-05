@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interface Method in Java</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        code {
+            font-family: Consolas, monospace;
+            font-size: 16px;
+            color: #333;
+            background-color: #f0f0f0;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
+        .col {
+            flex: 1;
+            padding: 0 30px;
+            margin-bottom: auto;
+        }
+
+        .col img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #pr
+        {
+            background-color: rgb(238, 236, 236);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Interface Method in Java And Examples</h1>
+    </header>
+    <main>
+        <div class="container">
+            <p>
+                Interfaces are another way of achieving abstraction in Java. An
+                interface is a collection of abstract methods and constants, similar
+                to an abstract class. However, an interface can only have abstract
+                methods and constants, and it cannot contain any implementation code.
+                An interface can be thought of as a contract between the interface and
+                the class that implements it, as the implementing class must provide
+                implementations for all the methods defined in the interface.
+            </p>
+
+            <div class="row">
+                <div class="col">
+                    <img src="img1.jpg" height="150%" width="200%" alt="Coding" />
+                </div>
+                <div class="col">
+                    <h2>Example of an Interface in Java</h2>
+                    <p>Here is an example of an interface in Java:</p>
+                    <pre id="pr">
+                      public interface Shape 
+                      { 
+                        double getArea(); 
+                        double getPerimeter();
+                      }
+                    </pre>
+                    <p>
+                        The Shape interface defines two abstract methods, getArea() and
+                        getPerimeter(). Any class that implements the Shape interface must
+                        provide implementations for these methods.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h2>Benefits of Using Interfaces in Java</h2>
+                    <p>Using interfaces in Java has several benefits, including:</p>
+                    <ul>
+                        <li>Facilitating loose coupling between objects</li>
+                        <li>
+                            Enforcing consistency in the classes that implement the
+                            interface
+                        </li>
+                        <li>
+                            Providing a way to define a contract between a class and the
+                            outside world
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <img src="inter.png" alt="Hands on Keyboard" />
+                </div>
+            </div>
+            <div class="row">
+
+                <img src="img2.webp" alt="Code on Monitor" />
+            </div>
+            <h2>Java Interface Example: Bank</h2>
+            <p>
+                Let's see another example of java interface which provides the implementation of Bank interface.
+            </p>
+            <p><em>File: TestInterface2.java</em></p>
+            <pre id="pr">
+            interface Bank{  
+                float rateOfInterest();  
+                }  
+                class SBI implements Bank{  
+                public float rateOfInterest(){return 9.15f;}  
+                }  
+                class PNB implements Bank{  
+                public float rateOfInterest(){return 9.7f;}  
+                }  
+                class TestInterface2{  
+                public static void main(String[] args){  
+                Bank b=new SBI();  
+                System.out.println("ROI: "+b.rateOfInterest());  
+                }
+             } 
+            
+        </pre>
+            <h2>Implementing an Interface in Java</h2>
+            <p>
+                In this example, the Drawable interface has only one method. Its
+                implementation is provided by Rectangle and Circle classes.
+            </p>
+            <img src="3.png" height="200%" width="70%">
+            <br>
+
+            In a real scenario, an interface is defined by someone else, but
+            its implementation is provided by different implementation
+            providers. Moreover, it is used by someone else. The
+            implementation part is hidden by the user who uses the interface.
+            </p>
+
+
+            <h2>Multiple inheritance in Java by interface</h2>
+            <div class="row">
+
+                <img src="4.png" height="250" width="250%" alt="Coding" />
+            </div>
+
+            <p>Here is an example of an interface in Java:</p>
+            <pre id="pr">
+                    interface Printable
+                    {  
+                        void print();  
+                        }  
+                        interface Showable{  
+                        void show();  
+                        }  
+                        class A7 implements Printable,Showable{  
+                        public void print(){System.out.println("Hello");}  
+                        public void show(){System.out.println("Welcome");}  
+                          
+                        public static void main(String args[]){  
+                        A7 obj = new A7();  
+                        obj.print();  
+                        obj.show();  
+                         }  
+                        } 
+                  
+                </pre>
+            <p>
+                The Shape interface defines two abstract methods, getArea() and
+                getPerimeter(). Any class that implements the Shape interface must
+                provide implementations for these methods.
+            </p>
+
+
+            <section>
+                <h2>Default Method in Interface</h2>
+                <p>
+                    we can have method body in interface. But we need to make it default method. Let's see an example:
+                </p>
+                <p><em>File: TestInterfaceDefault.java</em></p>
+                <pre id="pr">
+                        interface Drawable{  
+                        void draw();  
+                        default void msg(){System.out.println("default method");}  
+                        }  
+                        class Rectangle implements Drawable{  
+                        public void draw(){System.out.println("drawing rectangle");}  
+                        }  
+                        class TestInterfaceDefault{  
+                        public static void main(String args[]){  
+                        Drawable d=new Rectangle();  
+                        d.draw();  
+                        d.msg();  
+                        }
+                      }
+                    </pre>
+                <p>
+                    <strong><em>OUTPUT:</em></strong>
+                    <br />
+                    drawing rectangle
+                    <br>
+                    default method
+                </p>
+            </section>
+
+            <section>
+                <h2>Static Method in Interface</h2>
+                <p>
+                    we can have static method in interface. Let's see an example:
+                <p><em>File: TestInterfaceStatic.java</em></p>
+                <pre id="pr">
+                        interface Drawable{  
+                            void draw();  
+                            static int cube(int x){return x*x*x;}  
+                            }  
+                            class Rectangle implements Drawable{  
+                            public void draw(){System.out.println("drawing rectangle");}  
+                            }  
+                              
+                            class TestInterfaceStatic{  
+                            public static void main(String args[]){  
+                            Drawable d=new Rectangle();  
+                            d.draw();  
+                            System.out.println(Drawable.cube(3));  
+                            }
+                           }  
+                         </pre>
+                <p>
+                    <strong><em>OUTPUT:</em></strong>
+                    <br />
+                    drawing rectangle
+                    <br>
+                    default method
+                </p>
+            </section>
+
+
+
+            <section>
+                <h2>Nested Interface in Java</h2>
+                <p>
+                    Note: An interface can have another interface which is known as a nested interface. We will learn it
+                    in detail in the nested classes chapter. For example:
+                <p><em>File: Nayan.java</em></p>
+                <pre id="pr">
+                        class Animal {
+                            interface Activity {
+                               void move();
+                            }
+                         }
+                         class Dog implements Animal.Activity {
+                            public void move() {
+                               System.out.println("Dogs can walk and run");
+                            }
+                         }
+                         public class Tester {
+                            public static void main(String args[]) {
+                               Dog dog = new Dog();
+                               dog.move();
+                            }
+                         }
+                         </pre>
+                <p>
+                    <strong><em>OUTPUT:</em></strong>
+                    <br />
+                    Dogs can walk and run
+
+            </section>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </main>
+</body>
+
